@@ -1,0 +1,209 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link href="../bower_components/core-animated-pages/core-animated-pages.html" rel="import">
+<link href="../bower_components/pageable-text/pageable-text.html" rel="import">
+
+<polymer-element name="book-list" attributes="show">
+<template>
+  <style>
+  .chip-container {
+    position: relative;
+    top: 20px;
+    right: 0;
+    left: 0;
+    text-align: center;
+  }
+
+  .chip {
+    display: inline-block;
+    position: relative;
+    border-radius: 3px;
+    margin: 4px;
+    overflow: hidden;
+    text-align: start;
+    background-color: #fff;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
+  }
+
+  .chip-top {
+    width: 200px;
+    height: 200px;
+  }
+
+  .chip-bottom {
+    line-height: 1.5;
+    width: 200px;
+  }
+
+  .chip-book-title, .chip-author {
+    margin-left: 8px;
+    margin-right: 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .chip-book-title {
+    font-weight: bold;
+  }
+
+  #details {
+    padding: 200px 10% 0;
+  }
+
+  .list-item {
+    height: 50px;
+    width: 70%;
+    min-width: 400px;
+    border-radius: 3px;
+    text-align: start;
+    overflow: hidden;
+    background: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 1px;
+    border-bottom-color: black;
+  }
+
+  .list-item-image {
+    width: 50px;
+    height: 50px;
+    margin-right: 8px;
+    float: left;
+  }
+
+  .list-item-info {
+    padding: 24px;
+  }
+
+  .chip-book-title {
+    width: 55%;
+  }
+
+  .chip-author {
+    
+  }
+
+  pageable-text {
+    height: 400px;
+  }
+  </style>
+
+    <!--<book-service id="service" books="{{books}}">
+  </book-service> 
+  transitions="hero-transition cross-fade"
+  -->
+  <core-animated-pages selected="{{displayType}}" transitions="hero-transition cross-fade" on-core-animated-pages-transition-end="{{complete}}">
+   
+      <section cross-fade>
+        <div class="chip-container">
+        <template repeat="{{books as book}}">
+
+          <div class="chip" hero-id="{{book.title}}-{{book.author}}" data-url="{{book.url}}" hero on-tap="{{openBook}}">
+            <div class="chip-top" style="background-image: url({{book.cover}});"></div>
+            <div class="chip-bottom">
+              <div class="chip-book-title">{{book.title}}</div>
+              <div class="chip-author">{{book.author}}</div>
+            </div>
+          </div>
+
+        </template>
+      </div>
+      </section>
+
+      <section cross-fade>
+        <div class="chip-container">
+        <template repeat="{{books as book}}">
+
+          <div class="list-item" hero-id="{{book.title}}-{{book.author}}" data-url="{{book.url}}" hero on-tap="{{openBook}}">
+            <div class="list-item-image" style="background-image: url({{book.cover}});"></div>
+            <div class="list-item-info" layout horizontal>
+              <div class="chip-book-title">{{book.title}}</div>
+              <div class="chip-author" layout flex>{{book.author}}</div>
+            </div>
+          </div>
+
+        </template>
+        </div>
+      </section>
+    </div>
+
+  </core-animated-pages>
+  <core-ajax id="ajax"
+      auto
+      url=""
+      response="{{bookContent}}"
+      handleAs="text">
+    </core-ajax>
+
+    <pageable-text>{{bookContent}}</pageable-text>
+</template>
+
+<script>
+Polymer({
+
+  displayType: 0,
+
+  books: [
+  {
+    "title" : "The Great Gatsby",
+    "author" : "F. Scott Fitzgerald",
+    "cover" : "../images/cover-01.jpg",
+    "url" : "https://cdn.rawgit.com/GITenberg/Shakespeare-s-Sonnets_1041/master/1041.txt"
+  },
+  {
+    "title" : "Brave New World",
+    "author" : "Aldous Huxley",
+    "cover" : "../images/cover-02.jpg",
+  },
+  {
+    "title" : "Catch-22",
+    "author" : "Joseph Heller",
+    "cover" : "../images/cover-03.jpg",
+  },
+  {
+    "title" : "The Graphes of Wrath",
+    "author" : "John Steinbeck",
+    "cover" : "../images/cover-07.jpg",
+  },
+  {
+    "title" : "1984",
+    "author" : "George Orwell",
+    "cover" : "../images/cover-08.jpg",
+  },
+  {
+    "title" : "Animal Farm",
+    "author" : "George Orwell",
+    "cover" : "../images/cover-04.jpg",
+  },
+  {
+    "title" : "All the King's Men",
+    "author" : "Robert Penn Warren",
+    "cover" : "../images/cover-06.jpg",
+  },
+  {
+    "title" : "Lord of the Flies",
+    "author" : "William Golding",
+    "cover" : "../images/cover-05.jpg",
+  }
+  ],
+
+  transition: function(e) {
+    if (this.displayType === 0) {
+      this.displayType = 1;
+    } else {
+      this.displayType = 0;
+    }
+  },
+
+  openBook: function(e) {
+    console.log(e);
+    this.$.ajax.url = e.srcElement.parentNode.dataset.url;
+  },
+
+  bookLoaded: function(e) {
+    console.log(e);
+
+  }
+});
+</script>
+</polymer-element>

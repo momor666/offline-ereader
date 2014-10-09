@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+
+<head>
+
+  <title>Offline eBook Reader Library</title>
+
+  <meta name="viewport" 
+  content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+  <script src="../bower_components/platform/platform.js">
+  </script>
+
+  <link rel="import"
+  href="../bower_components/core-header-panel/core-header-panel.html">
+  <link rel="import"
+  href="../bower_components/core-toolbar/core-toolbar.html">
+  <link rel="import"
+  href="../bower_components/paper-tabs/paper-tabs.html">
+  <link rel="import" href="book-list.html">
+  <link href="../bower_components/core-icons/core-icons.html" rel="import">
+
+  <style>
+  html,body {
+    height: 100%;
+    margin: 0;
+    background-color: #E5E5E5;
+    font-family: 'RobotoDraft', sans-serif;
+  }
+  .container {
+    width: 80%;
+    margin: 50px auto;
+  }
+  @media (min-width: 481px) {
+    #tabs {
+      width: 200px;
+    }
+    .container {
+      width: 100%;
+    }
+  }
+  core-toolbar {
+    background: #03a9f4;
+    color: white;
+  }
+
+  </style>
+
+</head>
+
+<body unresolved fullbleed>
+  <template is="auto-binding" id="main-template">
+  <core-scaffold id="scaffold">
+
+  <core-toolbar tool flex> <!-- flex makes the bar span across the top -->
+  <div flex>Book Library</div> <!-- flex justifies the icons to the right-side -->
+  <core-icon-button icon="search"></core-icon-button>
+  <core-icon-button icon="view-list" on-tap="{{handleViewListTap}}"></core-icon-button>
+  <core-icon-button icon="add"></core-icon-button>
+</core-toolbar>
+
+<div class="container" layout flex>
+
+  <book-list show="all"></book-list>
+  <paper-fab icon="add"></paper-fab>
+
+</div>
+
+</core-scaffold>
+</template>
+
+<script>
+  var pageTemplate = document.querySelector("#main-template");
+
+  pageTemplate.addEventListener('template-bound', function() {
+      pageTemplate.handleViewListTap = function() {
+        document.querySelector("book-list").transition();
+      }
+  });
+</script>
+</body>
+
+</html>

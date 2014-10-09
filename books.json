@@ -1,0 +1,43 @@
+[
+  {
+    "title" : "Have you heard about the Web Components revolution?",
+    "author" : "test",
+    "cover" : "../images/cover-01.jpg",
+    "path" : "../books/book-01.epub"
+  },
+  {
+    "title" : "Loving this Polymer thing.",
+    "author" : "Rob",
+    "cover" : "../images/cover-02.jpg",
+  },
+    {
+    "title" : "So last year...",
+    "author" : "Dimitri",
+    "cover" : "../images/cover-03.jpg",
+  },
+  {
+    "title" : "Pretty sure I came up with that first.",
+    "author" : "Ada",
+    "cover" : "../images/cover-07.jpg",
+  },
+  {
+    "title" : "Yo, I heard you like components, so I put a component in your component.",
+    "author" : "Grace",
+    "cover" : "../images/cover-08.jpg",
+  },
+  {
+    "title" : "Centralize, centrailize.",
+    "author" : "John",
+    "cover" : "../images/cover-04.jpg",
+  },
+  {
+    "title" : "Has anyone seen my cat?",
+    "author" : "Zelda",
+    "cover" : "../images/cover-06.jpg",
+  },
+  {
+    "title" : "Decentralize!",
+    "author" : "Norbert",
+    "cover" : "../images/cover-05.jpg",
+  }
+]

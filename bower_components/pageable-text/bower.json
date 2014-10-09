@@ -1,0 +1,36 @@
+{
+  "name": "pageable-text",
+  "version": "1.0.1",
+  "authors": [
+    "Jeff Posnick <jeffy@google.com>"
+  ],
+  "description": "Element providing solution to no problem in particular.",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "pagination",
+    "paging",
+    "text",
+    "ereader"
+  ],
+  "main": "pageable-text.html",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/jeffposnick/pageable-text/",
+  "ignore": [
+    "/.*",
+    "/tests/"
+  ],
+  "dependencies": {
+    "core-ajax": "Polymer/core-ajax#^0.4.2",
+    "core-animation": "Polymer/core-animation#^0.4.2",
+    "core-icon-button": "Polymer/core-icon-button#^0.4.2",
+    "core-icons": "Polymer/core-icons#^0.4.2",
+    "core-media-query": "Polymer/core-media-query#^0.4.2",
+    "mark-down": "robdodson/mark-down#~0.6.0",
+    "polymer": "Polymer/polymer#^0.4.2"
+  },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#^0.7.3"
+  }
+}

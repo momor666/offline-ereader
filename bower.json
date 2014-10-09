@@ -30,9 +30,11 @@
   ],
   "dependencies": {
     "core-animated-pages": "Polymer/core-animated-pages#^0.4.2",
-    "core-elements": "Polymer/core-elements#^0.4.2",
+    "core-elements": "Polymer/core-elements#~0.4.2",
     "flatiron-director": "PolymerLabs/flatiron-director#master",
-    "paper-elements": "Polymer/paper-elements#^0.4.2",
-    "service-worker-cache": "jeffposnick/service-worker-cache#0.0.6"
+    "paper-elements": "Polymer/paper-elements#~0.4.2",
+    "service-worker-cache": "jeffposnick/service-worker-cache#master",
+    "polymer": "Polymer/polymer#~0.4.2",
+    "pageable-text": "jeffposnick/pageable-text#master"
   }
 }
